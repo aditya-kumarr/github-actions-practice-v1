@@ -1,6 +1,7 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 8080;
 
 app.get("/", (req, res) => {
   const PI = 3.14159265;
