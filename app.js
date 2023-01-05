@@ -10,4 +10,21 @@ app.get("/", (req, res) => {
     value: PI,
   });
 });
+app.get("/secret", (req, res) => {
+  const password = req.query.password;
+  if (password === "3.14159265") {
+    res.json({
+      message: "you found the secret message",
+    });
+  } else if (password == undefined) {
+    res.json({
+      message:
+        "you need to attach the password in the url to access the secret",
+    });
+  } else {
+    res.json({
+      message: "wrong password, try again",
+    });
+  }
+});
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
