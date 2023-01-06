@@ -27,4 +27,11 @@ app.get("/secret", (req, res) => {
     });
   }
 });
+app.get(
+  "/auth"((req, res) => {
+    res.json({
+      message: "you're not authenticated",
+    });
+  })
+);
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
